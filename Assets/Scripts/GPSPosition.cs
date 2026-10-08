@@ -1,19 +1,23 @@
-using UnityEngine;
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class GPSPosition : MonoBehaviour
 {
-    UIscript uiScript;
+    public TMP_Text latitudeText;
+    public TMP_Text longitudeText;
+
 
     public static LocationService location;
 
     public float desiredAccuracyInMeters = 1f;
     public float updateDistanceInMeters = 1f; //These could now cause errors being declared up here?
 
-    public List<float> latitudeList = new();
-    public List<float> longitudeList = new();
+    public List<string> latitudeList = new();
+    public List<string> longitudeList = new();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,12 +38,11 @@ public class GPSPosition : MonoBehaviour
     }
     */
 
-
-
-
     public void Stoptracking()
     {
         Input.location.Stop();
+
+        longitudeText.text = "Test";
     }
 
     IEnumerator Start()
@@ -89,13 +92,19 @@ public class GPSPosition : MonoBehaviour
 
         if(Input.location.lastData.latitude != 0 && Input.location.lastData.longitude != 0)
         {
-            latitudeList.Add(Input.location.lastData.latitude);
-            longitudeList.Add(Input.location.lastData.longitude);
+            latitudeList.Add(Input.location.lastData.latitude.ToString());
+            longitudeList.Add(Input.location.lastData.longitude.ToString());
 
-            uiScript.DrawText("Latitude: " + latitudeList + "\n" + "Longitude: " + longitudeList);
+            foreach (string i in latitudeList)
+            {
+                latitudeText.text += "  " + i;
+            }
 
-
-            Input.location.Stop();
+            if(latitudeText.text == null)
+            {
+                latitudeText.text = "Null Text";
+            }
+            //("Latitude: " + latitudeList + "\n" + "Longitude: " + longitudeList);
         }
     }
 
