@@ -1,0 +1,12 @@
+# ninja log v5
+1	8090	8132397087371714	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	5406a443f5a24ac
+865	8099	8132397089882537	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	72b1f8f242cf29bc
+1747	8101	8132397100012509	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	75617e968fd8e87a
+2672	8103	8132397107907279	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	9e21bc21ae603900
+3547	8106	8132397120357598	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	312a24992ba82fdb
+4459	8108	8132397126691100	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	9197ca2cd5bf6dd
+5367	8110	8132397138047691	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	4f6b7f4147d69252
+6285	8382	8132397144454453	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	28f9fa00a750aa21
+7214	8432	8132397144987679	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	429b9a73107862b
+8383	9933	8132397159913761	D:/Year 2/Harry/Unity projects/Mobile-GPS-Proto-V1.0/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4b3i1e4d/obj/arm64-v8a/libgame.so	27d4fa88ad613e0
+8432	9957	8132397160046298	D:/Year 2/Harry/Unity projects/Mobile-GPS-Proto-V1.0/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4b3i1e4d/obj/arm64-v8a/libswappywrapper.so	80ef1d6dd964408

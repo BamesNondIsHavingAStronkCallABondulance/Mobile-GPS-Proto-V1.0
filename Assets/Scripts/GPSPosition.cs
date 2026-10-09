@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GPSPosition : MonoBehaviour
 {
     public TMP_Text latitudeText;
     public TMP_Text longitudeText;
 
+    public BorderSO border;
 
     public static LocationService location;
 
@@ -41,8 +43,6 @@ public class GPSPosition : MonoBehaviour
     public void Stoptracking()
     {
         Input.location.Stop();
-
-        longitudeText.text = "Test";
     }
 
     IEnumerator Start()
@@ -89,6 +89,9 @@ public class GPSPosition : MonoBehaviour
     public void RecordPosition()
     {
         Input.location.Start(desiredAccuracyInMeters, updateDistanceInMeters);
+        latitudeText.text = "";
+        longitudeText.text = "";
+
 
         if(Input.location.lastData.latitude != 0 && Input.location.lastData.longitude != 0)
         {
@@ -100,13 +103,25 @@ public class GPSPosition : MonoBehaviour
                 latitudeText.text += "  " + i;
             }
 
-            if(latitudeText.text == null)
+            foreach (string i in longitudeList)
             {
-                latitudeText.text = "Null Text";
+                longitudeText.text += "  " + i;
             }
-            //("Latitude: " + latitudeList + "\n" + "Longitude: " + longitudeList);
         }
     }
 
-    
+    public void SetPositions()
+    {
+        foreach (string i in latitudeList)
+        {
+            border.latitudeList.Add(i);
+        }
+
+        foreach (string i in longitudeList)
+        {
+            border.longitudeList.Add(i);
+        }
+
+        SceneManager.LoadScene(1); //Change to two if you add a main menu
+    }
 }
